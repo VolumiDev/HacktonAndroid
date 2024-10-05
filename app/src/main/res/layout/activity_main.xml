@@ -8,38 +8,6 @@
     android:background="@drawable/fondo"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_newGame"
-        android:layout_width="193dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="298dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginBottom="386dp"
-        android:drawableBottom="@drawable/gradient_button"
-        android:text="Empezar partida"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312" />
-
-    <Button
-        android:id="@+id/btn_exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="408dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="275dp"
-        android:text="Salir"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView2"

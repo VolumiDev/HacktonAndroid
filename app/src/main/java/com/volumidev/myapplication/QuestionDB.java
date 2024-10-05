@@ -1,10 +1,10 @@
 package com.volumidev.myapplication;
 
-public class QuestionBD {
+public class QuestionDB {
     private Question[] questions_table;
     private int diff_selected; //from 0 to 2
 
-    QuestionBD(){
+    QuestionDB(){
         switch(diff_selected){
             case 1:
                 questions_table = mediumquestions();
@@ -99,9 +99,9 @@ public class QuestionBD {
 //------------------------------------------------------------------------------------------
     public Question[] mediumquestions(){
         String [] Preguntas = {
-                "The Earth's atmosphere has __ layers.",
+                "The Earth's atmosphere has ' ' layers.",
                 "The exosphere contains gases like...",
-                "Water covers … of the Earth's surface.",
+                "Water covers ' ' of the Earth's surface.",
                 "How far is the Sun from Earth?",
                 "The Sun is about...",
                 "A solar eclipse occurs when...",
@@ -131,19 +131,19 @@ public class QuestionBD {
         };
         //PRIMERA RESPUESTA CORRECTA, SEPARADAS POR GUION
         String [] Respuestas = {
-                "The Earth's atmosphere has __ layers.",
-                "The exosphere contains gases like...",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
+                "6-5-7-4 ",
+                "Hydrogen and helium, but they are very sparse.-Carbon-Hydrogen-Oxygen ",
+                "70%-65%-50%-80%",
+                "4.5 billion years old-34 million years old-6.7 billion years old-7.8 billion years old",
+                "The Moon passes between the Sun and the Earth-The Sun passes between the Moon and the Earth-The Earth passes between the Sun and the Moon-It doesn’t happen",
+                "Venus-Mars-Jupiter-Pluto",
+                "Jupiter-Saturn-Pluto-Mars",
+                "Laika-Rayka-Neil Armstrong-No one has ever gone ",
+                "5,000,000,000-8,000,000,000-7,000,000,000-6,000,000,000",
+                "Hydrogen-Helium-Oxygen-Carbon",
+                "Big Bang Theory-Quantum Theory-Expansion Theory-Armstrong's Theory ",
+                "Milky Way-Andromeda-Triangulum-Spiral",
+                "White Dwarf-Neutron star-Black hole-Supernova",
                 "",
                 "",
                 "",
@@ -236,9 +236,10 @@ public class QuestionBD {
                 "Its brightness varies regularly-It changes position in the sky-It becomes a supernova-It emits dark matter",
                 "A term that describes the accelerated expansion of the universe-A value that describes the speed of light-The force of gravitational attraction-Formula for body lift",
                 "Irregular galaxies-Spiral galaxies-Elliptical galaxies-Phantom galaxies",
-                "",
-                "",
-                ""
+                "A ring of matter surrounding a black hole or star-A cloud of interstellar dust-A star cluster-The orbit of a planet around its star",
+                "1 parsec-10 parsecs-0.1 parsecs-100 parsecs",
+                "The Doppler effect due to the expansion of the universe-The absorption of light by stellar dust-The collision of stars-The rotation of galaxies",
+                "The boundary beyond which nothing, not even light, can escape-The zone where light can still escape-The outermost region of a black hole-The outer region of a black hole"
         };
         Question [] hard_q = new Question[Preguntas.length];
         Question q;
@@ -259,4 +260,19 @@ public class QuestionBD {
         return splitted_ans;
     }
 
+    public int getDiff_selected() {
+        return diff_selected;
+    }
+
+    public void setDiff_selected(int diff_selected) {
+        this.diff_selected = diff_selected;
+    }
+
+    public Question[] getQuestions_table() {
+        return questions_table;
+    }
+
+    public void setQuestions_table(Question[] questions_table) {
+        this.questions_table = questions_table;
+    }
 }

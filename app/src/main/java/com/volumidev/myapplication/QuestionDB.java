@@ -1,10 +1,10 @@
 package com.volumidev.myapplication;
 
-public class QuestionBD {
+public class QuestionDB {
     private Question[] questions_table;
     private int diff_selected; //from 0 to 2
 
-    QuestionBD(){
+    QuestionDB(){
         switch(diff_selected){
             case 1:
                 questions_table = mediumquestions();
@@ -259,4 +259,20 @@ public class QuestionBD {
         return splitted_ans;
     }
 
+
+    public Question[] getQuestions_table() {
+        return questions_table;
+    }
+
+    public void setQuestions_table(Question[] questions_table) {
+        this.questions_table = questions_table;
+    }
+
+    public int getDiff_selected() {
+        return diff_selected;
+    }
+
+    public void setDiff_selected(int diff_selected) {
+        this.diff_selected = diff_selected;
+    }
 }

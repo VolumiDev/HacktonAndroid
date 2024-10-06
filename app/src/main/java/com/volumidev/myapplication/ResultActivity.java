@@ -47,15 +47,16 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         imgResult=findViewById(R.id.imageViewResult);
 
         //Resultado
-        int progress=intent.getIntExtra("progress", 10);
+        int progress=intent.getIntExtra("progress", 0);
 
         if(progress==10){
-            sonidoDerrota();
+            sonidoVictoria();
             imgResult.setImageResource(R.drawable.win);
             textViewResult.setText("Llegaste a la luna!!!");
         } else {
+            sonidoDerrota();
             imgResult.setImageResource(R.drawable.lose);
-            textViewResult.setText("Perdiste en la " + progress + "fase");
+            textViewResult.setText("Perdiste en la " + progress + "º fase");
         }
 
 
@@ -68,6 +69,13 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
     public void sonidoDerrota(){
         mediaPlayer=MediaPlayer.create(this,R.raw.derrota);
+        mediaPlayer.start();
+        //Libera recursos cuando se ejecuta el audio
+        mediaPlayer.setOnCompletionListener(mp -> mediaPlayer.release());
+    }
+
+    public void sonidoVictoria(){
+        mediaPlayer=MediaPlayer.create(this,R.raw.victoria);
         mediaPlayer.start();
         //Libera recursos cuando se ejecuta el audio
         mediaPlayer.setOnCompletionListener(mp -> mediaPlayer.release());

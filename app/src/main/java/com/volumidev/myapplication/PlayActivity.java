@@ -61,11 +61,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn[3].setOnClickListener(this);
         btn_submit.setOnClickListener(this);
 
-        btn_submit.setBackgroundColor(btnColor);
-        buttonSettings(btn[0], btn[1], btn[2], btn[3], btnColor);
+
+        submitStarter(this, btn_submit);
+        buttonSettings(btn);
 
         //seteamos  gestionamos la primera vez que preguntamosy almacenamos la respuesta correcta
-        correct_answer = resetActivity(dataBase, tv_question, btn[0], btn[1], btn[2], btn[3]);
+        correct_answer = resetActivity(btn, dataBase, tv_question, btn[0], btn[1], btn[2], btn[3]);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -79,38 +80,27 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.btn_a:
                 response = btn[0].getText().toString();
-                btn[0].setBackgroundColor(chooseColor);
-                btn[1].setBackgroundColor(btnColor);
-                btn[2].setBackgroundColor(btnColor);
-                btn[3].setBackgroundColor(btnColor);
+                responseSelector(this, btn, v.getId());
+                submitActivate(this, btn_submit);
                 break;
             case R.id.btn_b:
                 response = btn[1].getText().toString();
-                btn[1].setBackgroundColor(chooseColor);
-                btn[0].setBackgroundColor(btnColor);
-                btn[2].setBackgroundColor(btnColor);
-                btn[3].setBackgroundColor(btnColor);
+                responseSelector(this, btn, v.getId());
+                submitActivate(this, btn_submit);
                 break;
-            case R.id.btn_c:
+                case R.id.btn_c:
                 response = btn[2].getText().toString();
-                btn[2].setBackgroundColor(chooseColor);
-                btn[1].setBackgroundColor(btnColor);
-                btn[0].setBackgroundColor(btnColor);
-                btn[3].setBackgroundColor(btnColor);
+                responseSelector(this, btn, v.getId());
+                submitActivate(this, btn_submit);
                 break;
             case R.id.btn_d:
                 response = btn[3].getText().toString();
-                btn[3].setBackgroundColor(chooseColor);
-                btn[1].setBackgroundColor(btnColor);
-                btn[2].setBackgroundColor(btnColor);
-                btn[0].setBackgroundColor(btnColor);
+                responseSelector(this, btn, v.getId());
+                submitActivate(this, btn_submit);
                 break;
             case R.id.btn_submit:
-                //aqui es donde validamos si la respuesta que nos ha dado es ccorrecta o no
-                Log.i("DIEGO", correct_answer);
-                Log.i("DIEGO", response);
+
                 if (response.equalsIgnoreCase(correct_answer)){
-                    Log.i("DIEGO", "dentro del if");
                     progress++;
                     flag = true;
                     responseColor(btn, correct_answer,response, correctOption, incorrectOption, flag);
@@ -124,12 +114,11 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                             @Override
                             public void run() {
                                 //restore button colors
-                                buttonSettings(btn[0], btn[1], btn[2], btn[3], btnColor);
+                                buttonSettings(btn);
                                 //answer reset
-                                correct_answer = resetActivity(dataBase, tv_question, btn[0], btn[1], btn[2], btn[3]);
+                                correct_answer = resetActivity(btn, dataBase, tv_question, btn[0], btn[1], btn[2], btn[3]);
                             }
                             },3000);
-
                     }
                 }else{
                     flag = false;
@@ -140,32 +129,27 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                         public void run() {
                             intent.putExtra("progress", progress);
                             startActivity(intent);
-
                         }
                     },3000);
-
                 }
         }
     }
 
 
-    public void buttonSettings(Button btn_a, Button btn_b, Button btn_c, Button btn_d, int btnColor){
-
-        btn_a.setBackgroundColor(btnColor);
-        btn_b.setBackgroundColor(btnColor);
-        btn_c.setBackgroundColor(btnColor);
-        btn_d.setBackgroundColor(btnColor);
-
+    public void buttonSettings(Button[] btns){
+        for (int i = 0 ; i < btns.length; i++){
+            btns[i].setBackgroundColor(btnColor);
+        }
     }
 
     //seteamos y rellenamos la info de las preguntas
-    public static String resetActivity(QuestionDB dataBase, TextView tv_question, Button btn_a, Button btn_b, Button btn_c, Button btn_d){
+    public static String resetActivity(Button[] btns, QuestionDB dataBase, TextView tv_question, Button btn_a, Button btn_b, Button btn_c, Button btn_d){
         //random questions
         Question question = randomizeQuestions(dataBase);
         //set tv with question
         tv_question.setText(question.getTitle());
         //set buttons with answers
-        randomAnswers(btn_a , btn_b, btn_c, btn_d, question);
+        randomAnswers(btns, question);
         return question.getCorrect_answer();
     }
 
@@ -182,28 +166,16 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         return dataBase.getQuestions_table()[index];
     }
 
-    public static void randomAnswers(Button btn_a, Button btn_b, Button btn_c, Button btn_d, Question question){
+    public static void randomAnswers(Button[] btns, Question question){
         Random rnd = new Random();
-        int index = rnd.nextInt(question.getPossible_answers().size());
-        btn_a.setText(question.getPossible_answers().get(index));
-        question.getPossible_answers().remove(index);
-
-        index = rnd.nextInt(question.getPossible_answers().size());
-        btn_b.setText(question.getPossible_answers().get(index));
-        question.getPossible_answers().remove(index);
-
-        index = rnd.nextInt(question.getPossible_answers().size());
-        btn_c.setText(question.getPossible_answers().get(index));
-        question.getPossible_answers().remove(index);
-
-        index = rnd.nextInt(question.getPossible_answers().size());
-        btn_d.setText(question.getPossible_answers().get(index));
-
+        for (int i = 0 ; i < btns.length; i++){
+            int index = rnd.nextInt(question.getPossible_answers().size());
+            btns[i].setText(question.getPossible_answers().get(index));
+            question.getPossible_answers().remove(index);
+        }
     }
 
     public static void responseColor(Button[] btns, String correct_answer,String response, int correctOption,int incorrectOption, boolean flag){
-
-
         if(flag){
             for (int i = 0 ; i < btns.length; i++){
                 if (btns[i].getText().toString().equalsIgnoreCase(correct_answer)){
@@ -219,5 +191,26 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }
+    }
+
+    public static void submitActivate(AppCompatActivity v, Button btn_submit){
+        btn_submit.setEnabled(true);
+        btn_submit.setTextColor(v.getResources().getColor(R.color.white));
+    }
+
+    public static void responseSelector(AppCompatActivity v, Button[] btns, int Id){
+        for (int i = 0 ; i < btns.length; i++){
+            if(btns[i].getId() == Id){
+                btns[i].setBackgroundColor(v.getResources().getColor(R.color.choose));
+            }else{
+                btns[i].setBackgroundColor(v.getResources().getColor(R.color.navy));
+            }
+        }
+    }
+
+    public static void submitStarter(AppCompatActivity v , Button btn_submit){
+        btn_submit.setBackgroundColor(v.getResources().getColor(R.color.navy));
+        btn_submit.setEnabled(false);
+        btn_submit.setTextColor(v.getResources().getColor(R.color.grey));
     }
 }

@@ -19,7 +19,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class ResultActivity extends AppCompatActivity implements View.OnClickListener{
      ImageButton btn_back2;
-     Intent intent;
      TextView textViewResult;
      ImageView imgResult;
      MediaPlayer mediaPlayer;
@@ -40,14 +39,14 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         //Volver a jugar
         btn_back2=findViewById(R.id.btn_back2);
         btn_back2.setOnClickListener(this);
-        intent=new Intent(ResultActivity.this, MainActivity.class);
+
 
 
         //Imagen
         imgResult=findViewById(R.id.imageViewResult);
 
         //Resultado
-        int progress=intent.getIntExtra("progress", 0);
+        int progress = getIntent().getIntExtra("progress", 0);
 
         if(progress==10){
             sonidoVictoria();
@@ -64,6 +63,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

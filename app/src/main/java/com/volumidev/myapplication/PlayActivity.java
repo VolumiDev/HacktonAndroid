@@ -2,6 +2,7 @@ package com.volumidev.myapplication;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_a, btn_b, btn_c, btn_d, btn_submit;
     TextView tv_question;
     int btnColor = Color.parseColor("#031f70");
+    GradientDrawable gradbtn = new GradientDrawable();
     int chooseColor = Color.parseColor("#cc8852");
     int progress, difficulty;
     QuestionDB dataBase;
@@ -57,7 +59,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn_submit.setOnClickListener(this);
 
         btn_submit.setBackgroundColor(btnColor);
-        buttonSettings(btn_a, btn_b, btn_c, btn_d, btnColor);
+        buttonSettings(btn_a, btn_b, btn_c, btn_d, btnColor, gradbtn);
 
         //seteamos  gestionamos la primera vez que preguntamos
         resetActivity(dataBase, tv_question, btn_a, btn_b, btn_c, btn_d);
@@ -99,7 +101,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
                 }else if(progress < 10 && flag == true){
                     //restore button colors
-                    buttonSettings(btn_a, btn_b, btn_c, btn_d, btnColor);
+                    buttonSettings(btn_a, btn_b, btn_c, btn_d, btnColor, gradbtn);
 
                 }
 
@@ -112,11 +114,17 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public static void buttonSettings(Button btn_a, Button btn_b, Button btn_c, Button btn_d, int btnColor){
+    public void buttonSettings(Button btn_a, Button btn_b, Button btn_c, Button btn_d, int btnColor, GradientDrawable gradbtn){
         btn_a.setBackgroundColor(btnColor);
         btn_b.setBackgroundColor(btnColor);
         btn_c.setBackgroundColor(btnColor);
         btn_d.setBackgroundColor(btnColor);
+
+        gradbtn.setStroke(2, getResources().getColor(R.color.white));
+        btn_a.setBackground(gradbtn);
+        btn_b.setBackground(gradbtn);
+        btn_c.setBackground(gradbtn);
+        btn_d.setBackground(gradbtn);
     }
 
     //seteamos y rellenamos la info de las preguntas

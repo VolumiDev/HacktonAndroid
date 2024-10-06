@@ -1,10 +1,14 @@
 package com.volumidev.myapplication;
 
-public class QuestionDB {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class QuestionDB implements Serializable {
     private Question[] questions_table;
     private int diff_selected; //from 0 to 2
 
-    QuestionDB(){
+    QuestionDB(int diff){
+        diff_selected = diff;
         switch(diff_selected){
             case 1:
                 questions_table = mediumquestions();
@@ -87,10 +91,10 @@ public class QuestionDB {
         Question q;
         for(int i=0; i<Preguntas.length; i++){
             q = new Question(0, false);
-            String[] q_answers = answer_splitter(Respuestas[i]);
+            ArrayList<String> q_answers = answer_splitter(Respuestas[i]);
             q.setTitle(Preguntas[i]);
             q.setPossible_answers(q_answers);
-            q.setCorrect_answer(q_answers[0]);
+            q.setCorrect_answer(q_answers.get(0));
             easy_q[i] = q;
         }
 
@@ -166,10 +170,10 @@ public class QuestionDB {
         Question q;
         for(int i=0; i<Preguntas.length; i++){
             q = new Question(1, false);
-            String[] q_answers = answer_splitter(Respuestas[i]);
+            ArrayList<String> q_answers = answer_splitter(Respuestas[i]);
             q.setTitle(Preguntas[i]);
             q.setPossible_answers(q_answers);
-            q.setCorrect_answer(q_answers[0]);
+            q.setCorrect_answer(q_answers.get(0));
             medium_q[i] = q;
         }
 
@@ -207,7 +211,7 @@ public class QuestionDB {
                 "What is an \"accretion disk\"?",
                 "What is the distance in parsecs to a star with a parallax of 1 arcsecond?",
                 "What phenomenon causes starlight to shift towards the red in the spectrum?",
-                "What is the \"event horizon\" of a black hole?",
+                "What is the \"event horizon\" of a black hole?"
         };
         //PRIMERA RESPUESTA CORRECTA, SEPARADAS POR GUION
         String [] Respuestas = {
@@ -246,31 +250,25 @@ public class QuestionDB {
         Question q;
         for(int i=0; i<Preguntas.length; i++){
             q = new Question(2, false);
-            String[] q_answers = answer_splitter(Respuestas[i]);
+            ArrayList<String> q_answers = answer_splitter(Respuestas[i]);
             q.setTitle(Preguntas[i]);
             q.setPossible_answers(q_answers);
-            q.setCorrect_answer(q_answers[0]);
+            q.setCorrect_answer(q_answers.get(0));
             hard_q[i] = q;
         }
 
         return hard_q;
     }
 
-    public String[] answer_splitter(String Respuesta){
-        String[]splitted_ans = Respuesta.split("-");
-        return splitted_ans;
+    public ArrayList<String> answer_splitter(String Respuesta){
+        String[] splitted_ans = Respuesta.split("-");
+        ArrayList<String> list_splitted_ans = new ArrayList<String>();
+        for (int i = 0; i < splitted_ans.length; i++) {
+            list_splitted_ans.add(splitted_ans[i]);
+        }
+        return list_splitted_ans;
     }
 
-<<<<<<< HEAD
-    public int getDiff_selected() {
-        return diff_selected;
-    }
-
-    public void setDiff_selected(int diff_selected) {
-        this.diff_selected = diff_selected;
-    }
-=======
->>>>>>> 45a99ac96f4cf82c1f3366ac77937a1204e0034d
 
     public Question[] getQuestions_table() {
         return questions_table;
@@ -279,8 +277,6 @@ public class QuestionDB {
     public void setQuestions_table(Question[] questions_table) {
         this.questions_table = questions_table;
     }
-<<<<<<< HEAD
-=======
 
     public int getDiff_selected() {
         return diff_selected;
@@ -289,5 +285,4 @@ public class QuestionDB {
     public void setDiff_selected(int diff_selected) {
         this.diff_selected = diff_selected;
     }
->>>>>>> 45a99ac96f4cf82c1f3366ac77937a1204e0034d
 }

@@ -20,7 +20,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     TextView tv_question;
     int btnColor = Color.parseColor("#031f70");
     int chooseColor = Color.parseColor("#cc8852");
-    int progress;
+    int progress, difficulty;
     QuestionDB dataBase;
 
 
@@ -35,7 +35,10 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_play);
-        dataBase = (QuestionDB) getIntent().getSerializableExtra("dataBase");
+        difficulty = getIntent().getIntExtra("difficulty", 0);
+
+
+        dataBase = new QuestionDB(difficulty);
 
         flag = false;
 
@@ -57,7 +60,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         buttonSettings(btn_a, btn_b, btn_c, btn_d, btnColor);
 
         //seteamos  gestionamos la primera vez que preguntamos
-        resetActivity(dataBase, tv_question);
+        resetActivity(dataBase, tv_question, btn_a, btn_b, btn_c, btn_d);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -117,19 +120,44 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //seteamos y rellenamos la info de las preguntas
-    public static void resetActivity(QuestionDB dataBase, TextView tv_question){
+    public static void resetActivity(QuestionDB dataBase, TextView tv_question, Button btn_a, Button btn_b, Button btn_c, Button btn_d){
+        //random questions
         Question question = randomizeQuestions(dataBase);
+        //set tv with question
         tv_question.setText(question.getTitle());
+        //set buttons with answers
+        randomAnswers(btn_a , btn_b, btn_c, btn_d, question);
     }
 
 
     public static Question randomizeQuestions(QuestionDB dataBase){
         Random rnd = new Random();
-        int index = rnd.nextInt(dataBase.getQuestions_table().length);
+        int index;
+        do{
+            index= rnd.nextInt(dataBase.getQuestions_table().length);
+
+        }while(dataBase.getQuestions_table()[index].isIs_asked());  //si esta en true se repetira el random
+
+        dataBase.getQuestions_table()[index].setIs_asked(true);
         return dataBase.getQuestions_table()[index];
     }
 
     public static void randomAnswers(Button btn_a, Button btn_b, Button btn_c, Button btn_d, Question question){
+        Random rnd = new Random();
+        int index = rnd.nextInt(question.getPossible_answers().size());
+        btn_a.setText(question.getPossible_answers().get(index));
+        question.getPossible_answers().remove(index);
+
+        index = rnd.nextInt(question.getPossible_answers().size());
+        btn_b.setText(question.getPossible_answers().get(index));
+        question.getPossible_answers().remove(index);
+
+        index = rnd.nextInt(question.getPossible_answers().size());
+        btn_c.setText(question.getPossible_answers().get(index));
+        question.getPossible_answers().remove(index);
+
+        index = rnd.nextInt(question.getPossible_answers().size());
+        btn_d.setText(question.getPossible_answers().get(index));
 
     }
 

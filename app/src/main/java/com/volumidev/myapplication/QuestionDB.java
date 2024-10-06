@@ -39,6 +39,7 @@ public class QuestionDB {
                 "Which is the second planet closest to the Sun?",
                 "What natural phenomenon occurs when the Moon blocks the Sun’s light?",
                 "Which is the planet farthest from the Sun in our solar system?",
+                "Which is the largest continent in the world?",
                 "Which is the smallest ocean in the world?",
                 "What is the equator?",
                 "What is the most abundant gas in Earth’s atmosphere?",
@@ -80,7 +81,7 @@ public class QuestionDB {
                 "National Aeronautics and Space Administration-National Association for Space Activities-National Air and Space Agency-North American Space Agency",
                 "Mercury-Redstone 3 (Freedom 7)-Apollo 11-Gemini 4-Apollo 1",
                 "1958-1965-1955-1960",
-                "Neil Armstrong-John Glenn-Buzz Aldrin-Michael Collins",
+                "Neil Armstrong-John Glenn-Buzz Aldrin-Michael Collins"
         };
         Question [] easy_q = new Question[Preguntas.length];
         Question q;
@@ -144,27 +145,27 @@ public class QuestionDB {
                 "Big Bang Theory-Quantum Theory-Expansion Theory-Armstrong's Theory ",
                 "Milky Way-Andromeda-Triangulum-Spiral",
                 "White Dwarf-Neutron star-Black hole-Supernova",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
+                "Very dense stars-Regions of space with extremely strong gravity-Stars in formation-Clouds of interstellar gas",
+                "Andromeda Galaxy-Sombrero Galaxy-Large Magellanic Cloud-Triangulum Galaxy",
+                "Light year-Stellar year-Astronomical unit-Galactic year",
+                "An explosion of a star in its final stage-A giant planet-A comet entering an atmosphere-A galaxy in formation",
+                "Star-Comet-Pulsar-Black hole",
+                "Gravity-Nuclear force-Electromagnetism-Cosmic radiation",
+                "Iron and nickel-Hydrogen-Silicon-Carbon",
+                "Mantle-Hydrosphere-Atmosphere-Outer core",
+                "Pacific Ocean-Atlantic Ocean-Indian Ocean-Arctic Ocean ",
+                "Mount Everest-Mount Kilimanjaro-Mount Aconcagua-Mount McKinley ",
+                "A process by which certain gases trap heat in the atmosphere-A phenomenon that causes rain-Cloud formation-A type of weather phenomenon",
+                "Igneous rock-Sedimentary rock-Metamorphic rock-Volcanic rock",
+                "Troposphere-Stratosphere-Mesosphere-Thermosphere ",
+                "Weathering-Erosion-Sedimentation-Compaction ",
+                "Antarctica-Greenland-Easter Island-Borneo",
+                "Corona-Core-Radiarion Zone-Chromosphere"
         };
         Question [] medium_q = new Question[Preguntas.length];
         Question q;
         for(int i=0; i<Preguntas.length; i++){
-            q = new Question(0, false);
+            q = new Question(1, false);
             String[] q_answers = answer_splitter(Respuestas[i]);
             q.setTitle(Preguntas[i]);
             q.setPossible_answers(q_answers);
@@ -244,7 +245,7 @@ public class QuestionDB {
         Question [] hard_q = new Question[Preguntas.length];
         Question q;
         for(int i=0; i<Preguntas.length; i++){
-            q = new Question(0, false);
+            q = new Question(2, false);
             String[] q_answers = answer_splitter(Respuestas[i]);
             q.setTitle(Preguntas[i]);
             q.setPossible_answers(q_answers);

@@ -15,7 +15,7 @@ public class Question implements Serializable {
         this.title = t;
         this.possible_answers = p_a;
         this.correct_answer = c_a;
-        this.difficulty = d;
+        this.difficulty = d; // a lo mejor hay que borrarlo
         this.is_asked = i_a;
     }
     Question(int d, boolean i_a)

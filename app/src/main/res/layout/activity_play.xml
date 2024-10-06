@@ -13,17 +13,12 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/tv_question"
-        android:layout_width="0dp"
+        android:layout_width="313dp"
         android:layout_height="159dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginBottom="36dp"
         android:background="@drawable/tv_border"
         android:gravity="center"
         android:text="PREGUNTA"
@@ -31,74 +26,65 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btn_b"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="286dp" />
 
     <Button
         android:id="@+id/btn_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="31dp"
+        android:minHeight="48dp"
+        android:width="310dp"
         android:text="ResponseA"
-        app:layout_constraintBottom_toTopOf="@+id/btn_c"
-        app:layout_constraintEnd_toStartOf="@+id/btn_b"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="452dp" />
 
     <Button
         android:id="@+id/btn_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="31dp"
+        android:minHeight="48dp"
+        android:width="310dp"
         android:text="ResponseB"
-        app:layout_constraintBottom_toTopOf="@+id/btn_d"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_a" />
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="508dp" />
 
     <Button
         android:id="@+id/btn_c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="22dp"
+        android:minHeight="48dp"
+        android:width="310dp"
         android:text="ResponseC"
-        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
-        app:layout_constraintEnd_toStartOf="@+id/btn_d"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="564dp" />
 
     <Button
         android:id="@+id/btn_d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
+        android:minHeight="48dp"
+        android:width="310dp"
         android:text="ResponseD"
-        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_c" />
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="621dp" />
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:minHeight="48dp"
         android:text="Send Response"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="677dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteY="16dp">
 
         <ImageView
             android:layout_width="wrap_content"

@@ -10,19 +10,26 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="424dp"
-        android:layout_height="275dp"
-        android:layout_marginBottom="580dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="267dp"
         android:minWidth="300dp"
         android:minHeight="292dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-7dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textViewResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewResult"
-        android:layout_width="381dp"
-        android:layout_height="100dp"
+        android:layout_width="373dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="89dp"
         android:width="326dp"
         android:height="192dp"
         android:fontFamily="@font/angkor"
@@ -37,37 +44,31 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.788" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewResult" />
 
     <ImageButton
         android:id="@+id/btn_back2"
         android:layout_width="78dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/atras"
         android:contentDescription="Volver atrás"
         android:minWidth="48dp"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewResult" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
 
     <ImageView
         android:id="@+id/imageViewResult"
-        android:layout_width="410dp"
-        android:layout_height="351dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="103dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewResult"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="189dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewResult"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/win" />

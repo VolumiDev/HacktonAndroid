@@ -52,11 +52,11 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         if(progress==10){
             sonidoVictoria();
             imgResult.setImageResource(R.drawable.win);
-            textViewResult.setText("Llegaste a la luna!!!");
+            textViewResult.setText("YOU REACHED TO THE MOON");
         } else {
             sonidoDerrota();
             imgResult.setImageResource(R.drawable.lose);
-            textViewResult.setText("Perdiste en la " + progress + "º fase");
+            textViewResult.setText("Sorry, you lose in the " + progress + "º trial");
         }
 
 

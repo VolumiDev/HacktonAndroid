@@ -39,8 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.btn_exit:
-                finishAffinity();  // Esto cerrará todas las actividades
-                System.exit(0);    // Esto finaliza la aplicación
+                ////prueba para las preguntas
+                Intent i = new Intent(this, PlayActivity.class);
+                startActivity(i);
+              //  finishAffinity();  // Esto cerrará todas las actividades
+              //  System.exit(0);    // Esto finaliza la aplicación
                 break;
 
             case R.id.btn_newGame:

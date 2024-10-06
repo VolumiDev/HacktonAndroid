@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_exit=findViewById(R.id.btn_exit);
         btn_exit.setOnClickListener(this);
 
-        intent=new Intent(MainActivity.this, ResultActivity.class);
+        intent=new Intent(MainActivity.this, WelcomeActivity.class);
     }
 
     @Override

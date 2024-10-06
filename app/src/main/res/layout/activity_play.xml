@@ -13,12 +13,17 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="@+id/linearbtn"
+        app:layout_constraintTop_toTopOf="@+id/linearbtn" />
 
     <TextView
         android:id="@+id/tv_question"
-        android:layout_width="313dp"
-        android:layout_height="159dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="286dp"
         android:background="@drawable/tv_border"
         android:gravity="center"
         android:text="PREGUNTA"
@@ -26,65 +31,86 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="286dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <Button
-        android:id="@+id/btn_a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:width="310dp"
-        android:text="ResponseA"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="452dp" />
+    <LinearLayout
+        android:id="@+id/linearbtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btn_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:width="310dp"
-        android:text="ResponseB"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="508dp" />
+        <Button
+            android:id="@+id/btn_a"
+            android:layout_width="313dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="450dp"
+            android:layout_weight="1"
+            android:width="310dp"
+            android:minHeight="48dp"
+            android:background="@drawable/btn_border"
+            android:text="ResponseA" />
 
-    <Button
-        android:id="@+id/btn_c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:width="310dp"
-        android:text="ResponseC"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="564dp" />
+        <Button
+            android:id="@+id/btn_b"
+            android:layout_width="313dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:width="310dp"
+            android:minHeight="48dp"
+            android:text="ResponseB" />
 
-    <Button
-        android:id="@+id/btn_d"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:width="310dp"
-        android:text="ResponseD"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="621dp" />
+        <Button
+            android:id="@+id/btn_c"
+            android:layout_width="313dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:width="310dp"
+            android:minHeight="48dp"
+            android:text="ResponseC" />
 
-    <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:text="Send Response"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="677dp" />
+        <Button
+            android:id="@+id/btn_d"
+            android:layout_width="313dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:width="310dp"
+            android:minHeight="48dp"
+            android:text="ResponseD" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="220dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:text="Send Response" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="411dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="210dp"
         android:gravity="center"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintBottom_toTopOf="@+id/tv_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="wrap_content"

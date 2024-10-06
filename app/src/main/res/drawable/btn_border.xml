@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Color de fondo del TextView (opcional) -->
-
-    <!-- Definir el borde (color y grosor) -->
-    <stroke
-        android:width="8dp"
-        android:color="#FFFffF" /> <!-- Cambia el color según prefieras -->
-
-    <!-- Esquinas redondeadas (opcional) -->
-    <corners android:radius="20dp" />
-
-    <!-- Margen interno (opcional) -->
-
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="6dp"
+        android:drawable="@drawable/btn_border_selector"
+        android:top="6dp" />
+</layer-list>

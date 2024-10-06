@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.os.CountDownTimer;
+
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,8 +32,9 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     String response;
     Boolean flag;
 
-
-
+    Intent intent;
+    CountDownTimer temporizador;
+    int aciertosPregunta=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,8 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
     }
 
     @Override
@@ -100,6 +106,9 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                     intent.putExtra("progress", progress);
                     startActivity(intent);
                 }else if(progress < 10 && flag == true){
+                    Intent intent = new Intent(this, ResultActivity.class);
+                    intent.putExtra("progress", progress);
+                    startActivity(intent);
                     //restore button colors
                     buttonSettings(btn_a, btn_b, btn_c, btn_d, btnColor, gradbtn);
 

@@ -11,37 +11,37 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="334dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginBottom="140dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_newGame"
+        android:layout_width="439dp"
+        android:layout_height="294dp"
+        android:layout_marginBottom="437dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/btn_newGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="115dp"
+        android:layout_width="171dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="405dp"
+        android:fontFamily="@font/aldrich"
         android:text="Iniciar partida"
-        app:layout_constraintBottom_toTopOf="@+id/btn_exit"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="102dp"
+        android:layout_width="127dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="601dp"
+        android:fontFamily="@font/aldrich"
         android:text="Salir"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_newGame" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

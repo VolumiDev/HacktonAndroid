@@ -93,20 +93,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 };
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
 
     }
 
@@ -139,6 +126,9 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                     intent.putExtra("progress", progress);
                     startActivity(intent);
                 }else if(progress < 10 && flag == true){
+                    Intent intent = new Intent(this, ResultActivity.class);
+                    intent.putExtra("progress", progress);
+                    startActivity(intent);
                     //restore button colors
                     buttonSettings(btn_a, btn_b, btn_c, btn_d, btnColor);
 

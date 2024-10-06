@@ -1,5 +1,6 @@
 package com.volumidev.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
      //ObjectAnimator animator;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,15 +45,14 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         imgResult=findViewById(R.id.imageViewResult);
 
         //Resultado
-        String valorResultado=intent.getStringExtra("final");
+        int progress=intent.getIntExtra("progress", 0);
 
-
-        if(valorResultado.contentEquals("ganaste")){
+        if(progress==10){
             imgResult.setImageResource(R.drawable.win);
             textViewResult.setText("Llegaste a la luna!!!");
         } else {
             imgResult.setImageResource(R.drawable.lose);
-            textViewResult.setText("Perdiste en la " + "fase");
+            textViewResult.setText("Perdiste en la " + progress + "fase");
         }
 
         /**

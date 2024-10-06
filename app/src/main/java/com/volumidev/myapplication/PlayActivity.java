@@ -1,7 +1,9 @@
 package com.volumidev.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.os.CountDownTimer;
+
 
 
 import androidx.activity.EdgeToEdge;
@@ -11,6 +13,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class PlayActivity extends AppCompatActivity {
+    Intent intent;
+    CountDownTimer temporizador;
+
+    int aciertosPregunta=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,39 +33,42 @@ public class PlayActivity extends AppCompatActivity {
             return insets;
         });
 
-        /**
-        //TIMER
-        //import android.os.CountDownTimer;
-        TextView cuentaAtras;
-        cuentaAtras=findViewById();
-        boolean iniciarTimer=false;
-        CountDownTimer temporizador;
-        if(iniciarTimer=true){               //Contara hacia atras 3000 milisegundos= 3 seg
-                                            //Con intercalo de 1000 milisegundos= 1 seg
-            temporizador= new CountDownTimer(3000, 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    //Se ejecuta cada 1000 milisegundos
+        //Para pasar a la siguiente actividad
+        intent=new Intent(PlayActivity.this,ResultActivity.class);
 
-                    if(millisUntilFinished=3000){
-                        cuentaAtras.setText("3");
+        boolean finalJuego = false;
+        if(finalJuego){
+                temporizador=new CountDownTimer(3000,1000) {
+                     @Override
+                    public void onTick(long millisUntilFinished) {
+                    //Se ejecuta cada 1000 milisegundos, no hay nada q ejecutar
                     }
-                    if(millisUntilFinished=2000){
-                        cuentaAtras.setText("2");
-                    }
-                    if(millisUntilFinished=1000){
-                        cuentaAtras.setText("1");
-                    }
-                }
 
-                @Override
-                public void onFinish() {
-                    //Cuando llegue a cero se ejecuta
-                }
-            };
+                    @Override
+                    public void onFinish() {
+                        if(aciertosPregunta==10){
+                            intent.putExtra("final", "ganaste");
+                        }else{
+                            intent.putExtra("final", "perdiste");
+                        }
 
-        }
-         **/
+                    }
+                };
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 

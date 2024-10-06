@@ -43,16 +43,16 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         imgResult=findViewById(R.id.imageViewResult);
 
         //Resultado
-        int valorResultado=intent.getIntExtra("clave",0);
+        String valorResultado=intent.getStringExtra("final");
 
-        /**
-        if(valorResultado==0){
-            imgResult.setImageResource(R.drawable.lose);
-            textViewResult.setText("Perdiste en la " + "fase");
-        } else {
+
+        if(valorResultado.contentEquals("ganaste")){
             imgResult.setImageResource(R.drawable.win);
             textViewResult.setText("Llegaste a la luna!!!");
-        }**/
+        } else {
+            imgResult.setImageResource(R.drawable.lose);
+            textViewResult.setText("Perdiste en la " + "fase");
+        }
 
         /**
         //Animación flecha

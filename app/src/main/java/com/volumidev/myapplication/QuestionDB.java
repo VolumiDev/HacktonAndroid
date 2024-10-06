@@ -261,6 +261,7 @@ public class QuestionDB {
         return splitted_ans;
     }
 
+<<<<<<< HEAD
     public int getDiff_selected() {
         return diff_selected;
     }
@@ -268,6 +269,8 @@ public class QuestionDB {
     public void setDiff_selected(int diff_selected) {
         this.diff_selected = diff_selected;
     }
+=======
+>>>>>>> 45a99ac96f4cf82c1f3366ac77937a1204e0034d
 
     public Question[] getQuestions_table() {
         return questions_table;
@@ -276,4 +279,15 @@ public class QuestionDB {
     public void setQuestions_table(Question[] questions_table) {
         this.questions_table = questions_table;
     }
+<<<<<<< HEAD
+=======
+
+    public int getDiff_selected() {
+        return diff_selected;
+    }
+
+    public void setDiff_selected(int diff_selected) {
+        this.diff_selected = diff_selected;
+    }
+>>>>>>> 45a99ac96f4cf82c1f3366ac77937a1204e0034d
 }

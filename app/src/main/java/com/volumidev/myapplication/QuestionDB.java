@@ -1,10 +1,14 @@
 package com.volumidev.myapplication;
 
-public class QuestionDB {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class QuestionDB implements Serializable {
     private Question[] questions_table;
     private int diff_selected; //from 0 to 2
 
-    QuestionDB(){
+    QuestionDB(int diff){
+        diff_selected = diff;
         switch(diff_selected){
             case 1:
                 questions_table = mediumquestions();
@@ -39,6 +43,7 @@ public class QuestionDB {
                 "Which is the second planet closest to the Sun?",
                 "What natural phenomenon occurs when the Moon blocks the Sun’s light?",
                 "Which is the planet farthest from the Sun in our solar system?",
+                "Which is the largest continent in the world?",
                 "Which is the smallest ocean in the world?",
                 "What is the equator?",
                 "What is the most abundant gas in Earth’s atmosphere?",
@@ -80,16 +85,16 @@ public class QuestionDB {
                 "National Aeronautics and Space Administration-National Association for Space Activities-National Air and Space Agency-North American Space Agency",
                 "Mercury-Redstone 3 (Freedom 7)-Apollo 11-Gemini 4-Apollo 1",
                 "1958-1965-1955-1960",
-                "Neil Armstrong-John Glenn-Buzz Aldrin-Michael Collins",
+                "Neil Armstrong-John Glenn-Buzz Aldrin-Michael Collins"
         };
         Question [] easy_q = new Question[Preguntas.length];
         Question q;
         for(int i=0; i<Preguntas.length; i++){
             q = new Question(0, false);
-            String[] q_answers = answer_splitter(Respuestas[i]);
+            ArrayList<String> q_answers = answer_splitter(Respuestas[i]);
             q.setTitle(Preguntas[i]);
             q.setPossible_answers(q_answers);
-            q.setCorrect_answer(q_answers[0]);
+            q.setCorrect_answer(q_answers.get(0));
             easy_q[i] = q;
         }
 
@@ -99,9 +104,9 @@ public class QuestionDB {
 //------------------------------------------------------------------------------------------
     public Question[] mediumquestions(){
         String [] Preguntas = {
-                "The Earth's atmosphere has __ layers.",
+                "The Earth's atmosphere has ' ' layers.",
                 "The exosphere contains gases like...",
-                "Water covers … of the Earth's surface.",
+                "Water covers ' ' of the Earth's surface.",
                 "How far is the Sun from Earth?",
                 "The Sun is about...",
                 "A solar eclipse occurs when...",
@@ -131,44 +136,44 @@ public class QuestionDB {
         };
         //PRIMERA RESPUESTA CORRECTA, SEPARADAS POR GUION
         String [] Respuestas = {
-                "The Earth's atmosphere has __ layers.",
-                "The exosphere contains gases like...",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
+                "6-5-7-4 ",
+                "Hydrogen and helium, but they are very sparse.-Carbon-Hydrogen-Oxygen ",
+                "70%-65%-50%-80%",
+                "4.5 billion years old-34 million years old-6.7 billion years old-7.8 billion years old",
+                "The Moon passes between the Sun and the Earth-The Sun passes between the Moon and the Earth-The Earth passes between the Sun and the Moon-It doesn’t happen",
+                "Venus-Mars-Jupiter-Pluto",
+                "Jupiter-Saturn-Pluto-Mars",
+                "Laika-Rayka-Neil Armstrong-No one has ever gone ",
+                "5,000,000,000-8,000,000,000-7,000,000,000-6,000,000,000",
+                "Hydrogen-Helium-Oxygen-Carbon",
+                "Big Bang Theory-Quantum Theory-Expansion Theory-Armstrong's Theory ",
+                "Milky Way-Andromeda-Triangulum-Spiral",
+                "White Dwarf-Neutron star-Black hole-Supernova",
+                "Very dense stars-Regions of space with extremely strong gravity-Stars in formation-Clouds of interstellar gas",
+                "Andromeda Galaxy-Sombrero Galaxy-Large Magellanic Cloud-Triangulum Galaxy",
+                "Light year-Stellar year-Astronomical unit-Galactic year",
+                "An explosion of a star in its final stage-A giant planet-A comet entering an atmosphere-A galaxy in formation",
+                "Star-Comet-Pulsar-Black hole",
+                "Gravity-Nuclear force-Electromagnetism-Cosmic radiation",
+                "Iron and nickel-Hydrogen-Silicon-Carbon",
+                "Mantle-Hydrosphere-Atmosphere-Outer core",
+                "Pacific Ocean-Atlantic Ocean-Indian Ocean-Arctic Ocean ",
+                "Mount Everest-Mount Kilimanjaro-Mount Aconcagua-Mount McKinley ",
+                "A process by which certain gases trap heat in the atmosphere-A phenomenon that causes rain-Cloud formation-A type of weather phenomenon",
+                "Igneous rock-Sedimentary rock-Metamorphic rock-Volcanic rock",
+                "Troposphere-Stratosphere-Mesosphere-Thermosphere ",
+                "Weathering-Erosion-Sedimentation-Compaction ",
+                "Antarctica-Greenland-Easter Island-Borneo",
+                "Corona-Core-Radiarion Zone-Chromosphere"
         };
         Question [] medium_q = new Question[Preguntas.length];
         Question q;
         for(int i=0; i<Preguntas.length; i++){
-            q = new Question(0, false);
-            String[] q_answers = answer_splitter(Respuestas[i]);
+            q = new Question(1, false);
+            ArrayList<String> q_answers = answer_splitter(Respuestas[i]);
             q.setTitle(Preguntas[i]);
             q.setPossible_answers(q_answers);
-            q.setCorrect_answer(q_answers[0]);
+            q.setCorrect_answer(q_answers.get(0));
             medium_q[i] = q;
         }
 
@@ -206,7 +211,7 @@ public class QuestionDB {
                 "What is an \"accretion disk\"?",
                 "What is the distance in parsecs to a star with a parallax of 1 arcsecond?",
                 "What phenomenon causes starlight to shift towards the red in the spectrum?",
-                "What is the \"event horizon\" of a black hole?",
+                "What is the \"event horizon\" of a black hole?"
         };
         //PRIMERA RESPUESTA CORRECTA, SEPARADAS POR GUION
         String [] Respuestas = {
@@ -236,27 +241,32 @@ public class QuestionDB {
                 "Its brightness varies regularly-It changes position in the sky-It becomes a supernova-It emits dark matter",
                 "A term that describes the accelerated expansion of the universe-A value that describes the speed of light-The force of gravitational attraction-Formula for body lift",
                 "Irregular galaxies-Spiral galaxies-Elliptical galaxies-Phantom galaxies",
-                "",
-                "",
-                ""
+                "A ring of matter surrounding a black hole or star-A cloud of interstellar dust-A star cluster-The orbit of a planet around its star",
+                "1 parsec-10 parsecs-0.1 parsecs-100 parsecs",
+                "The Doppler effect due to the expansion of the universe-The absorption of light by stellar dust-The collision of stars-The rotation of galaxies",
+                "The boundary beyond which nothing, not even light, can escape-The zone where light can still escape-The outermost region of a black hole-The outer region of a black hole"
         };
         Question [] hard_q = new Question[Preguntas.length];
         Question q;
         for(int i=0; i<Preguntas.length; i++){
-            q = new Question(0, false);
-            String[] q_answers = answer_splitter(Respuestas[i]);
+            q = new Question(2, false);
+            ArrayList<String> q_answers = answer_splitter(Respuestas[i]);
             q.setTitle(Preguntas[i]);
             q.setPossible_answers(q_answers);
-            q.setCorrect_answer(q_answers[0]);
+            q.setCorrect_answer(q_answers.get(0));
             hard_q[i] = q;
         }
 
         return hard_q;
     }
 
-    public String[] answer_splitter(String Respuesta){
-        String[]splitted_ans = Respuesta.split("-");
-        return splitted_ans;
+    public ArrayList<String> answer_splitter(String Respuesta){
+        String[] splitted_ans = Respuesta.split("-");
+        ArrayList<String> list_splitted_ans = new ArrayList<String>();
+        for (int i = 0; i < splitted_ans.length; i++) {
+            list_splitted_ans.add(splitted_ans[i]);
+        }
+        return list_splitted_ans;
     }
 
 

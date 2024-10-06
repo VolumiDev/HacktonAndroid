@@ -1,15 +1,16 @@
 package com.volumidev.myapplication;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Question implements Serializable {
     private String title;
-    private String[] possible_answers;
+    private ArrayList<String> possible_answers;
     private String correct_answer;
     public int difficulty; //from 0 to 2
     private boolean is_asked;
 
-    Question(String t, String[] p_a, String c_a, int d, boolean i_a)
+    Question(String t, ArrayList<String> p_a, String c_a, int d, boolean i_a)
     {
         this.title = t;
         this.possible_answers = p_a;
@@ -31,11 +32,11 @@ public class Question implements Serializable {
         this.title = title;
     }
 
-    public String[] getPossible_answers() {
+    public ArrayList<String> getPossible_answers() {
         return possible_answers;
     }
 
-    public void setPossible_answers(String[] possible_answers) {
+    public void setPossible_answers(ArrayList<String> possible_answers) {
         this.possible_answers = possible_answers;
     }
 

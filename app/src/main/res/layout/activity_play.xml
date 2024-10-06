@@ -9,33 +9,6 @@
     android:background="@drawable/fondo"
     tools:context=".PlayActivity">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        app:layout_constraintStart_toStartOf="@+id/linearbtn"
-        app:layout_constraintTop_toTopOf="@+id/linearbtn" />
-
-    <TextView
-        android:id="@+id/tv_question"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginBottom="286dp"
-        android:background="@drawable/tv_border"
-        android:gravity="center"
-        android:text="PREGUNTA"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
     <LinearLayout
         android:id="@+id/linearbtn"
         android:layout_width="0dp"
@@ -47,15 +20,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="313dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="130dp"
+            android:layout_weight="3"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="313dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="2.5"
+            android:background="@drawable/tv_border"
+            android:gravity="center"
+            android:text="PREGUNTA"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/btn_a"
             android:layout_width="313dp"
             android:layout_height="0dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:width="310dp"
             android:minHeight="48dp"
-            android:background="@drawable/btn_border"
             android:text="ResponseA" />
 
         <Button
@@ -102,12 +96,10 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="110dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="210dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/tv_question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

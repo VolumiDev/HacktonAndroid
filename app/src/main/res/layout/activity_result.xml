@@ -30,7 +30,7 @@
         android:paddingTop="8dp"
         android:paddingRight="16dp"
         android:paddingBottom="8dp"
-        android:text="string victoria o string derrota + fase en la que perdiste"
+        android:text=""
         android:textAlignment="center"
         android:textColor="#D6C4C4"
         android:textSize="20sp"

@@ -2,7 +2,9 @@ package com.volumidev.myapplication;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import android.widget.ImageButton;
@@ -20,9 +22,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
      Intent intent;
      TextView textViewResult;
      ImageView imgResult;
-
-     //ObjectAnimator animator;
-
+     MediaPlayer mediaPlayer;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -36,10 +36,12 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             return insets;
         });
 
+        textViewResult=findViewById(R.id.textViewResult);
         //Volver a jugar
         btn_back2=findViewById(R.id.btn_back2);
         btn_back2.setOnClickListener(this);
         intent=new Intent(ResultActivity.this, MainActivity.class);
+
 
         //Imagen
         imgResult=findViewById(R.id.imageViewResult);
@@ -48,28 +50,14 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         int progress=intent.getIntExtra("progress", 0);
 
         if(progress==10){
+            sonidoVictoria();
             imgResult.setImageResource(R.drawable.win);
             textViewResult.setText("Llegaste a la luna!!!");
         } else {
+            sonidoDerrota();
             imgResult.setImageResource(R.drawable.lose);
-            textViewResult.setText("Perdiste en la " + progress + "fase");
+            textViewResult.setText("Perdiste en la " + progress + "º fase");
         }
-
-        /**
-        //Animación flecha
-        do {
-            animator = ObjectAnimator.ofFloat(btn_back2, "translationX", 200f);
-            animator.setDuration(200);
-            animator.start();
-        } while (true);
-         **/
-
-
-        //imgResult.setTranslationX(100f);
-        //imgResult.setTranslationX(-100f);
-
-
-
 
 
     }
@@ -79,5 +67,17 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         startActivity(intent);
     }
 
+    public void sonidoDerrota(){
+        mediaPlayer=MediaPlayer.create(this,R.raw.derrota);
+        mediaPlayer.start();
+        //Libera recursos cuando se ejecuta el audio
+        mediaPlayer.setOnCompletionListener(mp -> mediaPlayer.release());
+    }
 
+    public void sonidoVictoria(){
+        mediaPlayer=MediaPlayer.create(this,R.raw.victoria);
+        mediaPlayer.start();
+        //Libera recursos cuando se ejecuta el audio
+        mediaPlayer.setOnCompletionListener(mp -> mediaPlayer.release());
+    }
 }

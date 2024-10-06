@@ -72,28 +72,6 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             return insets;
         });
 
-        //Para pasar a la siguiente actividad
-        intent=new Intent(PlayActivity.this,ResultActivity.class);
-
-        boolean finalJuego = false;
-        if(finalJuego){
-                temporizador=new CountDownTimer(3000,1000) {
-                     @Override
-                    public void onTick(long millisUntilFinished) {
-                    //Se ejecuta cada 1000 milisegundos, no hay nada q ejecutar
-                    }
-
-                    @Override
-                    public void onFinish() {
-                        if(aciertosPregunta==10){
-                            intent.putExtra("final", "ganaste");
-                        }else{
-                            intent.putExtra("final", "perdiste");
-                        }
-
-                    }
-                };
-        }
 
     }
 

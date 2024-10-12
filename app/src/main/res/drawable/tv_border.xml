@@ -5,7 +5,7 @@
 
     <!-- Definir el borde (color y grosor) -->
     <stroke
-        android:width="8dp"
+        android:width="4dp"
         android:color="#FFFffF" /> <!-- Cambia el color según prefieras -->
 
     <!-- Esquinas redondeadas (opcional) -->

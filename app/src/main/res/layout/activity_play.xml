@@ -120,78 +120,94 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/tierra" />
 
         <ImageView
+            android:id="@+id/cohete"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/cohete" />
 
         <ImageView
+            android:id="@+id/phase2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/punto" />
 
         <ImageView
+            android:id="@+id/phase3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/punto" />
 
         <ImageView
+            android:id="@+id/phase4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/punto" />
 
         <ImageView
+            android:id="@+id/phase5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/punto" />
 
         <ImageView
+            android:id="@+id/phase6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/punto" />
 
         <ImageView
+            android:id="@+id/phase7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/punto" />
 
         <ImageView
+            android:id="@+id/phase8"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/punto" />
 
         <ImageView
+            android:id="@+id/phase9"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:src="@drawable/punto" />
+        <ImageView
+            android:id="@+id/phase10"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/punto" />
 
         <ImageView
             android:layout_width="61dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/luna" />
     </LinearLayout>
 

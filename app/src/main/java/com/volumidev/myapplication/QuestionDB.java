@@ -83,7 +83,7 @@ public class QuestionDB implements Serializable {
                 "Dead Sea-Coral Barrier-Grand Canyon-Mount Everest",
                 "Earthquake-Storm-Tornado-Hurricane",
                 "National Aeronautics and Space Administration-National Association for Space Activities-National Air and Space Agency-North American Space Agency",
-                "Mercury-Redstone 3 (Freedom 7)-Apollo 11-Gemini 4-Apollo 1",
+                "Mercury~Redstone 3 (Freedom 7)-Apollo 11-Gemini 4-Apollo 1",
                 "1958-1965-1955-1960",
                 "Neil Armstrong-John Glenn-Buzz Aldrin-Michael Collins"
         };

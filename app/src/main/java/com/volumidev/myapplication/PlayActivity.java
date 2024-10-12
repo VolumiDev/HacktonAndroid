@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class PlayActivity extends AppCompatActivity implements View.OnClickListener{
@@ -28,6 +30,9 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     int incorrectOption = Color.parseColor("#ff0000");
     int chooseColor = Color.parseColor("#cc8852");
     int progress, difficulty;
+    ImageView cohete;
+    ArrayList<ImageView> phases;
+
     QuestionDB dataBase;
     Handler handler = new Handler();
 
@@ -55,6 +60,16 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn[3] = findViewById(R.id.btn_d);
         btn_submit = findViewById(R.id.btn_submit);
 
+        cohete = findViewById(R.id.cohete);
+        phases = new ArrayList<ImageView>();
+        phases.add(cohete);  //first step phases
+
+        for(int i = 2; i <= 10; i++){
+            int id = getResources().getIdentifier("phase" + i, "id", getPackageName());
+            ImageView phase = findViewById(id);
+            phases.add(phase);
+        }
+
         btn[0].setOnClickListener(this);
         btn[1].setOnClickListener(this);
         btn[2].setOnClickListener(this);
@@ -63,10 +78,10 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
 
 
         submitStarter(this, btn_submit);
-        buttonSettings(btn);
+        buttonSettings();
 
         //seteamos  gestionamos la primera vez que preguntamosy almacenamos la respuesta correcta
-        correct_answer = resetActivity(btn, dataBase, tv_question, btn[0], btn[1], btn[2], btn[3]);
+        correct_answer = resetActivity();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -114,9 +129,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                             @Override
                             public void run() {
                                 //restore button colors
-                                buttonSettings(btn);
+                                buttonSettings();
                                 //answer reset
-                                correct_answer = resetActivity(btn, dataBase, tv_question, btn[0], btn[1], btn[2], btn[3]);
+                                correct_answer = resetActivity();
+                                rocketProgress(phases, progress);
+                                btn_submit.setEnabled(false);
+                                btn_submit.setTextColor(getResources().getColor(R.color.grey));
                             }
                             },3000);
                     }
@@ -136,20 +154,20 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void buttonSettings(Button[] btns){
-        for (int i = 0 ; i < btns.length; i++){
-            btns[i].setBackgroundColor(btnColor);
+    public void buttonSettings(){
+        for (int i = 0 ; i < btn.length; i++){
+            btn[i].setBackgroundColor(btnColor);
         }
     }
 
     //seteamos y rellenamos la info de las preguntas
-    public static String resetActivity(Button[] btns, QuestionDB dataBase, TextView tv_question, Button btn_a, Button btn_b, Button btn_c, Button btn_d){
+    public String resetActivity(){
         //random questions
         Question question = randomizeQuestions(dataBase);
         //set tv with question
         tv_question.setText(question.getTitle());
         //set buttons with answers
-        randomAnswers(btns, question);
+        randomAnswers(question);
         return question.getCorrect_answer();
     }
 
@@ -166,11 +184,11 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         return dataBase.getQuestions_table()[index];
     }
 
-    public static void randomAnswers(Button[] btns, Question question){
+    public void randomAnswers(Question question){
         Random rnd = new Random();
-        for (int i = 0 ; i < btns.length; i++){
+        for (int i = 0 ; i < btn.length; i++){
             int index = rnd.nextInt(question.getPossible_answers().size());
-            btns[i].setText(question.getPossible_answers().get(index));
+            btn[i].setText(question.getPossible_answers().get(index));
             question.getPossible_answers().remove(index);
         }
     }
@@ -213,4 +231,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn_submit.setEnabled(false);
         btn_submit.setTextColor(v.getResources().getColor(R.color.grey));
     }
+
+    public static void rocketProgress(ArrayList<ImageView> phases, int progress){
+        int srcRocket = R.drawable.cohete;
+        int srcWhiteDot = R.drawable.punto;
+        phases.get(progress - 1).setImageResource(srcWhiteDot);
+        phases.get(progress).setImageResource(srcRocket);
+    }
+
 }

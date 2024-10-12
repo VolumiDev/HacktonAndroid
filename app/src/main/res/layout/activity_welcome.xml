@@ -5,34 +5,32 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeActivity"
-    android:background="@drawable/fondo">
+    android:background="@drawable/fondo"
+    tools:context=".WelcomeActivity">
 
     <TextView
-        android:fontFamily="@font/aldrich"
-        android:textColor="@color/white"
         android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="431dp"
-        android:width="362dp"
-        android:height="244dp"
+        android:layout_marginTop="37dp"
+        android:maxWidth="300dp"
+        android:minWidth="250dp"
+        android:minHeight="320dp"
+        android:maxHeight="350dp"
+        android:background="@drawable/tv_border"
+        android:fontFamily="@font/aldrich"
         android:paddingLeft="16dp"
         android:paddingTop="8dp"
         android:paddingRight="16dp"
         android:paddingBottom="8dp"
-        android:text="\nBienvenido/a.\n\n \tA partir de ahora se sumergerá en una travesía
-en su intento de llegar a la Luna. Pero no le será tan sencillo, deberá demostrar sus
-conocimientos para poder ir avanzando\n\n.
-\tCuando aparezcan las preguntas, seleccione la repsuesta que crea correcta y presione
-enviar CON MUCHO CUIDADO, pues de equivocarse, el viaje de vuelta será en paracaídas.\n
-Buena suerte."
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="\nWelcome/a.\n\nYou are about to embark on a journey to the Moon.
+        However, it won't be easy. You'll need to demonstrate your knowledge to progress.
+
+        \n\nWhen the questions appear, select the answer you believe is correct and submit it
+        CAREFULLY, as a mistake could lead to a parachute ride back to Earth. \n\nGood luck."
+        android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,49 +38,41 @@ Buena suerte."
         android:id="@+id/spin_difficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="328dp"
+        android:layout_marginBottom="35dp"
         android:backgroundTint="#FFFFFF"
         android:backgroundTintMode="src_in"
         android:foregroundTint="#FFFFFF"
         android:minWidth="292dp"
         android:minHeight="74dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_welcome"
-        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:fontFamily="@font/aldrich"
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="611dp"
         android:layout_marginBottom="46dp"
         android:width="292dp"
         android:height="74dp"
+        android:fontFamily="@font/aldrich"
         android:minHeight="48dp"
         android:text="Start"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="535dp"
-        android:layout_marginBottom="140dp"
-        android:background="@drawable/atras"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/atraswhite"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_start"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

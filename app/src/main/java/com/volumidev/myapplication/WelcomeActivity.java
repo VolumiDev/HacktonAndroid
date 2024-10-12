@@ -1,6 +1,7 @@
 package com.volumidev.myapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         btn_start.setOnClickListener(this);
         btn_back.setOnClickListener(this);
 
+        difficulties.setBackgroundColor(Color.parseColor("#031f70"));
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.difficulty, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
